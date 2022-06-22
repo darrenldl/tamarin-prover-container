@@ -2,11 +2,12 @@ FROM docker.io/ubuntu:kinetic
 
 ENV TAG="1.6.1"
 ENV LANG="en_US.UTF-8"
-ENV PATH="$HOME/.local/bin:\$PATH"
+ENV PATH="$HOME/.local/bin:$PATH"
 
 WORKDIR /root
 RUN apt-get update --yes
 RUN apt-get install --yes wget
+RUN apt-get install --yes libz-dev
 RUN apt-get install --yes haskell-stack
 RUN apt-get install locales
 RUN locale-gen "en_US.UTF-8"
