@@ -14,6 +14,8 @@ RUN locale-gen "en_US.UTF-8"
 RUN stack upgrade
 RUN wget https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/${TAG}.tar.gz
 RUN tar xzf ${TAG}.tar.gz
+RUN rm ${TAG}.tar.gz
 WORKDIR /root/tamarin-prover-${TAG}
 RUN stack setup
 RUN stack install
+RUN rm -r /root/tamarin-prover-${TAG}
