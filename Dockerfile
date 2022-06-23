@@ -2,7 +2,7 @@ FROM docker.io/ubuntu:kinetic
 
 ENV TAG="1.6.1"
 ENV LANG="en_US.UTF-8"
-ENV PATH="$HOME/.local/bin:$PATH"
+ENV PATH="/root/.local/bin:$PATH"
 
 WORKDIR /root
 RUN apt-get update --yes
