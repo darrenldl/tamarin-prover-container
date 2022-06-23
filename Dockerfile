@@ -1,6 +1,5 @@
 FROM docker.io/ubuntu:kinetic
 
-ENV TAG="1.6.1"
 ENV LANG="en_US.UTF-8"
 ENV PATH="/root/.local/bin:$PATH"
 
