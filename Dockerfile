@@ -17,3 +17,4 @@ RUN tar xzf ${TAG}.tar.gz
 WORKDIR /root/tamarin-prover-${TAG}
 RUN stack setup
 RUN stack install
+RUN apt-get install --yes maude
