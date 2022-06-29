@@ -21,3 +21,4 @@ WORKDIR /root/tamarin-prover-${TAG}
 RUN stack setup
 RUN stack install
 RUN rm -r /root/tamarin-prover-${TAG}
+RUN apt-get install --yes graphviz
