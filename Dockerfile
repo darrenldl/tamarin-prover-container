@@ -12,7 +12,8 @@ RUN apt-get install --yes wget
 RUN apt-get install --yes libz-dev
 RUN apt-get install --yes maude
 RUN apt-get install --yes haskell-stack
-RUN apt-get install locales
+RUN apt-get install --yes locales
+RUN apt-get install --yes netbase
 RUN locale-gen "en_US.UTF-8"
 RUN stack upgrade
 RUN wget https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/${TAG}.tar.gz
