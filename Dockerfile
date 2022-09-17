@@ -1,4 +1,5 @@
-FROM docker.io/ubuntu:kinetic
+ARG UBUNTU_TAG="kinetic"
+FROM docker.io/ubuntu:${UBUNTU_TAG}
 
 ARG TAG="1.6.1"
 
