@@ -20,8 +20,8 @@ RUN wget https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/${TA
 RUN tar xzf ${TAG}.tar.gz
 RUN rm ${TAG}.tar.gz
 WORKDIR /root/tamarin-prover-${TAG}
-RUN stack setup
-RUN stack install
+RUN make tamarin
+RUN make sapic
 RUN rm -r /root/tamarin-prover-${TAG}
 RUN apt-get install --yes graphviz
 RUN apt-get install --yes python3
