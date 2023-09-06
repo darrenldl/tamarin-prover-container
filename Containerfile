@@ -14,14 +14,22 @@ RUN apt-get install --yes maude
 RUN apt-get install --yes haskell-stack
 RUN apt-get install --yes locales
 RUN apt-get install --yes netbase
-RUN locale-gen "en_US.UTF-8"
 RUN stack upgrade
+RUN locale-gen "en_US.UTF-8"
+RUN useradd -ms /bin/bash user
+USER user
+WORKDIR /home/user
 RUN wget https://github.com/tamarin-prover/tamarin-prover/archive/refs/tags/${TAG}.tar.gz
 RUN tar xzf ${TAG}.tar.gz
 RUN rm ${TAG}.tar.gz
-WORKDIR /root/tamarin-prover-${TAG}
-RUN make
-RUN if [[ ${TAG} == "1.6.1" || ${TAG} == "1.4.1" ]]; then make sapic; fi
-RUN rm -r /root/tamarin-prover-${TAG}
+WORKDIR /home/user/tamarin-prover-${TAG}
+RUN stack setup
+RUN stack install
+RUN bash -c 'if [[ ${TAG} == "1.6.1" || ${TAG} == "1.4.1" ]]; then make sapic; fi'
+ENV PATH="/home/user/.local/bin":${PATH}
+WORKDIR /home/user
+RUN rm -r /home/user/tamarin-prover-${TAG}
+USER root
 RUN apt-get install --yes graphviz
 RUN apt-get install --yes python3
+USER user
