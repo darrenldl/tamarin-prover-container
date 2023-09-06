@@ -1,7 +1,7 @@
 ARG UBUNTU_TAG="kinetic"
 FROM docker.io/ubuntu:${UBUNTU_TAG}
 
-ARG TAG="1.6.1"
+ARG TAG=""
 
 ENV LANG="en_US.UTF-8"
 ENV PATH="/root/.local/bin:$PATH"
@@ -21,7 +21,7 @@ RUN tar xzf ${TAG}.tar.gz
 RUN rm ${TAG}.tar.gz
 WORKDIR /root/tamarin-prover-${TAG}
 RUN make
-RUN make sapic
+RUN if [[ ${TAG} == "1.6.1" || ${TAG} == "1.4.1" ]]; then make sapic; fi
 RUN rm -r /root/tamarin-prover-${TAG}
 RUN apt-get install --yes graphviz
 RUN apt-get install --yes python3
