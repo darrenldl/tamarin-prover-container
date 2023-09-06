@@ -1,4 +1,4 @@
-ARG UBUNTU_TAG="kinetic"
+ARG UBUNTU_TAG=""
 FROM docker.io/ubuntu:${UBUNTU_TAG}
 
 ARG TAG=""
