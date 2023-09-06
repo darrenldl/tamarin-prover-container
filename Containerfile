@@ -32,4 +32,6 @@ RUN rm -r /home/user/tamarin-prover-${TAG}
 USER root
 RUN apt-get install --yes graphviz
 RUN apt-get install --yes python3
+COPY interactive.sh /home/user/.local/bin/
+RUN chown -R user:user /home/user/.local/bin/
 USER user
