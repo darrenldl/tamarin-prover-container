@@ -19,10 +19,10 @@ For Tamarin prover 1.4.1
 ## Starting the container
 
 ```
-./start-container.sh PROJECT_DIR
+./start-container.sh
 ```
 
-where `PROJECT_DIR` is the target project directory in user home directory, i.e. `~/PROJECT_DIR`.
+The current working directory will be mounted with the same name under the user home inside the container.
 
 ## Running Tamarin
 
