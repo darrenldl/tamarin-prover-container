@@ -2,11 +2,6 @@
 
 TAMARIN_VER="1.8.0"
 
-if [[ "$PROJECT_DIR" == "" ]]; then
-  echo "Please specify project directory"
-  exit 1
-fi
-
 WORK_DIR_NAME=$(basename $PWD)
 
 podman run -it \
