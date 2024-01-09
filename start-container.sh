@@ -12,7 +12,7 @@ fi
 
 podman run -it \
   -v "$PWD":/home/user/"$WORK_DIR_NAME" \
-  --userns keep-id:uid=1000,gid=1000 \
+  --userns keep-id \
   --workdir /home/user/"$WORK_DIR_NAME" \
   --rm \
   -p "127.0.0.1:$port:3001" \
