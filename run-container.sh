@@ -16,3 +16,4 @@ podman run -it \
   --workdir /home/user/"$WORK_DIR_NAME" \
   --rm \
   -p "127.0.0.1:$port:3001" \
+  docker.io/darrenldl/tamarin-prover:"$TAMARIN_VER"
