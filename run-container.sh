@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TAMARIN_VER="1.8.0"
+TAMARIN_VER="1.6.1"
 
 WORK_DIR_NAME=$(basename $PWD)
 
@@ -16,4 +16,3 @@ podman run -it \
   --workdir /home/user/"$WORK_DIR_NAME" \
   --rm \
   -p "127.0.0.1:$port:3001" \
-  docker.io/darrenldl/tamarin-prover:"$TAMARIN_VER"
